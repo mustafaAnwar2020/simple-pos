@@ -14,7 +14,7 @@
         </li>
 
     <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="">
+        <a class="c-sidebar-nav-link" href="{{route('dashboard.client.index')}}">
             <i class="c-sidebar-nav-icon fas fa-fw fa-address-card"></i>
             @lang('site.clients')
         </a>
@@ -29,7 +29,7 @@
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="">
             <i class="c-sidebar-nav-icon fas fa-fw fa-tasks"></i>
-            Tasks
+            @lang('site.orders')
         </a>
     </li>
 
