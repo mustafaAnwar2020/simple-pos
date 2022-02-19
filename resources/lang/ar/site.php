@@ -59,7 +59,7 @@ return [
     'category' => 'القسم',
     'show_products' => 'عرض المنتجات',
     'created_at' => 'تم اضافته',
-
+    'client' => 'العميل',
     'products' => 'المنتجات',
     'product' => 'المنتج',
     'quantity' => 'الكميه',
