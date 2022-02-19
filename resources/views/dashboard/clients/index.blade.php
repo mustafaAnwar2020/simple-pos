@@ -41,7 +41,7 @@
                     @foreach ($clients as $item)
                         <tr>
                             <td>{{ $i++}}</a></td>
-                            <td>{{ $item->name }}</td>
+                            <td><a href="{{route('dashboard.client.show',$item)}}">{{ $item->name }}</a></td>
                             <td>
                                 <a class="btn btn-sm btn-info" href="{{ route('dashboard.client.edit', $item) }}">
                                     @lang('site.edit')
