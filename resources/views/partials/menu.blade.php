@@ -27,7 +27,7 @@
     </li>
 
     <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="">
+        <a class="c-sidebar-nav-link" href="{{route('dashboard.orders.index')}}">
             <i class="c-sidebar-nav-icon fas fa-fw fa-tasks"></i>
             @lang('site.orders')
         </a>
