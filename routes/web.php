@@ -31,16 +31,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::resource('product','App\Http\Controllers\ProductController');
         Route::get('/client/order/create/{client}','App\Http\Controllers\OrderController@create')->name('order.create');
         Route::post('/client/order/create/{client}','App\Http\Controllers\OrderController@store')->name('order.store');
-        Route::get('/client/orders/edit/{order}','App\Http\Controllers\OrderController@edit')->name('order.edit');
-        // Route::post('/client/order/create/{client}','App\Http\Controllers\OrderController@store')->name('order.store');
+        Route::get('/client/{client}/orders/edit/{order}','App\Http\Controllers\OrderController@edit')->name('order.edit');
+        Route::put('/client/{client}/orders/edit/{order}','App\Http\Controllers\OrderController@update')->name('order.update');
         Route::resource('client','App\Http\Controllers\ClientController');
         Route::get('/orders/products/{order}','App\Http\Controllers\OrderController@products')->name('orders.products');
         Route::resource('orders','App\Http\Controllers\OrderController');
     });
 });
 
-// Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-
-//     });
 
 
