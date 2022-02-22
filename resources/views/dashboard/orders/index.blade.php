@@ -57,7 +57,7 @@
                         </button>
                             </td>
                             <td>
-                                <a class="btn btn-sm btn-info" href="{{ route('dashboard.order.edit', $item) }}">
+                                <a class="btn btn-sm btn-info" href="{{ route('dashboard.order.edit', ['client'=>$item->client->id,'order'=>$item->id]) }}">
                                     @lang('site.edit')
                                 </a>
 
