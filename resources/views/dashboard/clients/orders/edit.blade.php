@@ -62,7 +62,7 @@
                                                                         data-name="{{ $product->name }}"
                                                                         data-id="{{ $product->id }}"
                                                                         data-price="{{ $product->sale_price }}"
-                                                                        class="btn btn-success btn-sm add-product-btn">
+                                                                        class="btn {{ in_array($product->id, $order->products->pluck('id')->toArray()) ? 'btn-default disabled' : 'btn-success add-product-btn' }} btn-sm">
                                                                         <i class="fa fa-plus"></i>
                                                                     </a>
                                                                 </td>
@@ -102,38 +102,48 @@
 
                         <div class="box-body">
 
-                            <form action="" method="post">
+                            @include('partials.errors')
+
+                            <form action="{{ route('dashboard.order.update', ['order' => $order, 'client' => $client]) }}" method="post">
 
                                 {{ csrf_field() }}
-
-                                @include('partials.errors')
+                                @method('PUT')
 
                                 <table class="table table-hover">
                                     <thead>
-                                        <tr>
-                                            <th>@lang('site.product')</th>
-                                            <th>@lang('site.quantity')</th>
-                                            <th>@lang('site.price')</th>
-                                        </tr>
+                                    <tr>
+                                        <th>@lang('site.product')</th>
+                                        <th>@lang('site.quantity')</th>
+                                        <th>@lang('site.price')</th>
+                                    </tr>
                                     </thead>
 
-                                    <tbody class="order-list" id="list-orders">
+                                    <tbody class="order-list">
 
+                                    @foreach ($order->products as $product)
+                                        <tr>
+                                            <td>{{ $product->name }}</td>
+                                            <td><input type="number" name="products[{{ $product->id }}][quantity]" data-price="{{ $product->sale_price }}" class="form-control input-sm product-quantity" min="1" value="{{ $product->pivot->quantity }}"></td>
+                                            <td class="product-price">{{ $product->sale_price * $product->pivot->quantity }}</td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm remove-product-btn" data-id="{{ $product->id }}"><span class="fa fa-trash"></span></button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
                                     </tbody>
 
-                                </table>
+                                </table><!-- end of table -->
 
-                                <h4>@lang('site.total') : <span class="total-price" id="ttl">0</span></h4>
+                                <h4>@lang('site.total') : <span class="total-price">{{ $order->total_price }}</span></h4>
 
-                                <button class="btn btn-primary btn-block disabled" id="add-order-form-btn"><i
-                                        class="fa fa-plus"></i> @lang('site.add_order')</button>
+                                <button class="btn btn-primary btn-block" id="form-btn"><i class="fa fa-edit"></i> @lang('site.edit_order')</button>
 
-                            </form>
+                            </form><!-- end of form -->
 
-                        </div>
+                        </div><!-- end of box body -->
 
-                    </div>
+                    </div><!-- end of box -->
 
                     @if ($client->orders->count() > 0)
 
@@ -196,4 +206,5 @@
         </section><!-- end of content -->
 
     </div><!-- end of content wrapper -->
+
 @endsection
