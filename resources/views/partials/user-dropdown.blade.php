@@ -33,7 +33,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right pt-0">
             <div class="dropdown-header bg-light py-2"><strong>Settings</strong></div>
-            <a class="dropdown-item" href="">
+            <a class="dropdown-item" href="{{route('dashboard.profile.index')}}">
                 <i class="c-icon fas fa-fw fa-id-card mr-2"></i>
                 Profile</a>
             <div class="dropdown-divider"></div>
