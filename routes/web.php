@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', 'App\Http\Controllers\DashboardController@index')->name('home');
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
@@ -36,6 +36,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::resource('client','App\Http\Controllers\ClientController');
         Route::get('/orders/products/{order}','App\Http\Controllers\OrderController@products')->name('orders.products');
         Route::resource('orders','App\Http\Controllers\OrderController');
+        Route::get('/profile','App\Http\Controllers\ProfileController@index')->name('profile.index');
+        Route::put('/profile/{profile}','App\Http\Controllers\ProfileController@update')->name('profile.update');
+        Route::post('/profile/','App\Http\Controllers\ProfileController@changePassword')->name('profile.password');
     });
 });
 
