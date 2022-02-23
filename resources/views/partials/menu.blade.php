@@ -1,6 +1,6 @@
 <ul class="c-sidebar-nav">
     <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="">
+        <a class="c-sidebar-nav-link" href="{{route('dashboard.')}}">
             <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt"></i>
             @lang('site.dashboard')
         </a>
