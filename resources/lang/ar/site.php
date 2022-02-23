@@ -47,9 +47,11 @@ return [
     'email' => 'البريد الاكتروني',
     'image' => 'صوره',
     'action' => 'اكشن',
-
+    'old_password'=>'الباسورد الحالي',
+    'new_passowrd'=> 'الباسورد الجديد',
     'permissions' => 'الصلاحيات',
-
+    'contact'=>'جهه الاتصال',
+    'confirm'=>'تأكيد',
     'categories' => 'الاقسام',
     'all_categories' => 'كل الاقسام',
     'name' => 'الاسم',
@@ -69,7 +71,9 @@ return [
     'sale_price' => 'سعر البيع',
     'stock' => 'المخزن',
     'profit_percent' => 'المكسب',
-
+    'save'=>'حفظ',
+    'change_password'=>'تغيير كلمه المرور',
+    'contact_info'=>'بيانات الجهه',
     'ar' => [
         'name' => 'الاسم بالغه العربيه',
         'description' => 'الوصف بالغه العربيه',
