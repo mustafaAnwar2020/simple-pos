@@ -47,7 +47,6 @@ class UsersController extends Controller
         return redirect()->route('dashboard.user.index');
     }
 
-    public function show(User $user){}
     public function edit(User $user){
         // $role=Role::all();
         // $userRole = DB::table('model_has_roles')->where('model_id',$user->id)->pluck('role_id','role_id')->first();
