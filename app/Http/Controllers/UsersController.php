@@ -17,7 +17,7 @@ class UsersController extends Controller
 
     public function create(){
         // $role=Role::all();
-        return view('users.create');
+        return view('dashboard.users.create');
     }
 
     public function store(Request $request)
@@ -29,7 +29,6 @@ class UsersController extends Controller
             'phone' => 'required|string',
             'contact' => 'required|url',
             'password' =>'required|string|min:8',
-            'role'=>'required'
         ]);
         // dd($request);
         $user = User::create([
@@ -44,15 +43,16 @@ class UsersController extends Controller
             'phone'=>$request->phone,
             'contact'=>$request->contact
         ]);
-        $user->assignRole($request->role);
+        // $user->assignRole($request->role);
         return redirect()->route('dashboard.user.index');
     }
 
+    public function show(User $user){}
     public function edit(User $user){
         // $role=Role::all();
         // $userRole = DB::table('model_has_roles')->where('model_id',$user->id)->pluck('role_id','role_id')->first();
         // dd($userRole);
-        return view('users.edit')->with('user',$user);
+        return view('dashboard.users.edit')->with('user',$user);
     }
 
     public function update(Request $request, User $user){
@@ -62,7 +62,7 @@ class UsersController extends Controller
             'address' => 'required|string',
             'phone' => 'required|string',
             'contact' => 'required|url',
-            'role' =>'required'
+            // 'role' =>'required'
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
