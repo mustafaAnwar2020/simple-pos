@@ -39,8 +39,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::get('/profile','App\Http\Controllers\ProfileController@index')->name('profile.index');
         Route::put('/profile/{profile}','App\Http\Controllers\ProfileController@update')->name('profile.update');
         Route::post('/profile/','App\Http\Controllers\ProfileController@changePassword')->name('profile.password');
+        Route::resource('user', 'App\Http\Controllers\UsersController');
     });
 });
-
-
-
