@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     @foreach ($user as $item)
-
+                    <?php try{?>
 
                         <tr>
                             <td>{{$item->name}}</td>
@@ -47,7 +47,24 @@
                             <input type="submit" class="btn btn-sm btn-danger" value="Delete">
                         </form>
                     </td>
+                    <?php } catch(\Exception $e){?>
+                        <p>User's profile doesn't exist</p>
+                        <td>
+                            <a class="btn btn-sm btn-info" href="{{route('dashboard.user.edit',$item)}}">
+                                @lang('site.edit')
+                            </a>
+
+                            <form action="{{route('dashboard.user.destroy',$item)}}" method="POST"
+                                onsubmit="return confirm('Are your sure?');" style="display: inline-block;">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                        <?php }?>
                 </tr>
+
                     @endforeach
                 </tbody>
             </table>
