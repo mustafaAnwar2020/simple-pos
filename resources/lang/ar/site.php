@@ -68,6 +68,8 @@ return [
     'total' => 'المجموع',
     'purchase_price' => 'سعر الشراء',
     'price' => 'السعر',
+    'roles' => 'الادوار',
+    'permissions'=>'الصلاحيات',
     'sale_price' => 'سعر البيع',
     'stock' => 'المخزن',
     'profit_percent' => 'المكسب',
