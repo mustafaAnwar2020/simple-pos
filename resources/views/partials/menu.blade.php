@@ -8,7 +8,7 @@
 
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{route('dashboard.category.index')}}">
-                <i class="c-sidebar-nav-icon fas fa-fw fa-user-alt"></i>
+                <i class="c-sidebar-nav-icon fa fa-list-alt" aria-hidden="true"></i>
                 @lang('site.categories')
             </a>
         </li>
@@ -33,12 +33,18 @@
         </a>
     </li>
 
-        <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="">
-                <i class="c-sidebar-nav-icon fas fa-fw fa-user-cog"></i>
-                Roles
-            </a>
-        </li>
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{route('dashboard.user.index')}}">
+            <i class="c-sidebar-nav-icon fa-solid fa-user-lock"></i>
+            @lang('site.users')
+        </a>
+    </li>
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{route('dashboard.roles.index')}}">
+            <i class="c-sidebar-nav-icon fas fa-fw fa-user-cog"></i>
+            @lang('site.roles')
+        </a>
+    </li>
     <li class="c-sidebar-nav-divider"></li>
     <li class="c-sidebar-nav-item mt-auto"></li>
     <li class="c-sidebar-nav-item"><a href="#" class="c-sidebar-nav-link"
