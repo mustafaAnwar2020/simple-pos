@@ -22,11 +22,11 @@ Route::post('login','App\Http\Controllers\API\LoginController@login');
 Route::post('register','App\Http\Controllers\API\RegisterController@register');
 Route::middleware('auth:api')->group(function(){
     Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-        Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        Route::prefix('dashboard')->group(function () {
             Route::apiResource('/categories','App\Http\Controllers\API\CategoryController');
             Route::apiResource('/products','App\Http\Controllers\API\ProductController');
             Route::put('/Order/{client}/update/{order}','App\Http\Controllers\API\OrderController@update');
-            Route::post('/Order/store/{client}','App\Http\Controllers\API\OrderController@store');
+            Route::post('/Order/{client}','App\Http\Controllers\API\OrderController@store');
             Route::apiResource('/Order','App\Http\Controllers\API\OrderController');
             Route::apiResource('/clients','App\Http\Controllers\API\ClientController');
         });
