@@ -32,8 +32,8 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->profile->phone}}</td>
-                            <td></td>
-                            {{-- @foreach ($item->getRoleNames() as $role)<td>{{$role}}</td>@endforeach --}}
+                            <td>@foreach ($item->getRoleNames() as $role){{$role}}@endforeach</td>
+
 
                     <td>
                         <a class="btn btn-sm btn-info" href="{{route('dashboard.user.edit',$item)}}">
