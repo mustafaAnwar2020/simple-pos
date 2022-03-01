@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    function __construct()
+    {
+        $this->middleware('permission:client-list|client-create|client-edit|client-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:client-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:client-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:client-delete', ['only' => ['destroy']]);
+    }
     public function index(Request $request)
     {
         $clients = Client::when($request->search,function($q) use ($request){
